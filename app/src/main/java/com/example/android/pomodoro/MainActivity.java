@@ -19,8 +19,7 @@ import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
     private TextView timeTextView,numberOfPomodorosTextView;
-    private FloatingActionButton startButton;
-    private ImageView resetButton;
+    private FloatingActionButton startButton,resetButton;
     private ProgressBar progressBarCircular;
     private int seconds = 1500, progress = 0, noOfPomodoros = 0;
     private boolean running;
@@ -40,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         startButton = findViewById(R.id.start_button);
-        resetButton = findViewById(R.id.reset_timer_image_view);
+        resetButton = findViewById(R.id.reset_timer_button);
         runTimer();
 
         startButton.setOnClickListener(new View.OnClickListener() {
@@ -116,7 +115,8 @@ public class MainActivity extends AppCompatActivity {
                     seconds = 1500;
                     progress = 0;
                     noOfPomodoros++;
-                    numberOfPomodorosTextView.setText("" + noOfPomodoros);
+                    String empty = "";
+                    numberOfPomodorosTextView.setText(empty + noOfPomodoros);
                     if(noOfPomodoros % 4 == 0 && noOfPomodoros > 0) {
                         startButton.setImageResource(R.drawable.ic_play);
                         Toast toast = Toast.makeText(getApplicationContext(),R.string.break_30,Toast.LENGTH_SHORT);
