@@ -2,7 +2,7 @@
     <string name="app_name">Pomodoro</string>
     <string name="reset">Reset</string>
     <string name="number_of_pomodoros_description">Tomato</string>
-    <string name="break_5">You can take a 5 min break!</string>
-    <string name="break_30">You have earned a 30 min break!</string>
+    <string name="break_5">You can take a short break!</string>
+    <string name="break_30">You have earned a long break!</string>
     <string name="default_number_pomodoros">0</string>
 </resources>

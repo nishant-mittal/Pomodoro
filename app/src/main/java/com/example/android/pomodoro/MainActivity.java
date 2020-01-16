@@ -2,6 +2,7 @@ package com.example.android.pomodoro;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -22,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     private FloatingActionButton startButton,resetButton;
     private ProgressBar progressBarCircular;
     private int seconds = 1500, progress = 0, noOfPomodoros = 0;
+    MediaPlayer player;
     private boolean running;
     private boolean isRunning;
     @Override
@@ -37,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
 
         }
 
+        player = MediaPlayer.create(this,R.raw.finish);
 
         startButton = findViewById(R.id.start_button);
         resetButton = findViewById(R.id.reset_timer_button);
@@ -77,21 +80,21 @@ public class MainActivity extends AppCompatActivity {
         outState.putBoolean("isRunning",isRunning);
     }
 
-    @Override
+    /*@Override
     protected void onPause() {
         super.onPause();
         isRunning = running;
         running = false;
-    }
+    }*/
 
-    @Override
+    /*@Override
     protected void onResume() {
         super.onResume();
         if(isRunning) {
             running = true;
             startButton.setImageResource(R.drawable.ic_pause);
         }
-    }
+    }*/
 
     public void runTimer() {
         timeTextView = findViewById(R.id.time_text_view);
@@ -129,6 +132,7 @@ public class MainActivity extends AppCompatActivity {
                         toast.setGravity(Gravity.BOTTOM|Gravity.CENTER_HORIZONTAL,0,270);
                         toast.show();
                     }
+                    player.start();
                 }
                 handler.postDelayed(this,1000);
             }
